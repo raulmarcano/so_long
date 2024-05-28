@@ -4,11 +4,11 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = 
+SRC = src/main.c
 		
-OBJS = $(SRC:.c=.o)
-
 OBJ_DIR = obj
+
+OBJS = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
 RM = rm -f
 
@@ -34,11 +34,14 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) -o $(NAME)
 	@echo "${LGREEN}Program compiled✅${NC}"
 
-$(OBJS): %.o: %.c
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) -rf $(OBJ_DIR)
 	@make -s clean -C $(LIB_DIR)
 	@echo "${MAGENTA}Objects deleted🧹${NC}"
 
@@ -50,6 +53,6 @@ fclean: clean
 re:	fclean all
 
 g3:
-	gcc src/*.c libft/*.c libft/printf/*.c -g3 -fsanitize="address" -o pipex
+	gcc src/*.c libft/*.c libft/printf/*.c libft/gnl/*.c -g3 -fsanitize="address" -o so_long
 
 .PHONY: all clean fclean re g3
