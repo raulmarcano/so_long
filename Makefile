@@ -4,9 +4,9 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/main.c
+SRC = src/main.c src/get_map.c
 		
-OBJ_DIR = obj
+OBJ_DIR = src/obj
 
 OBJS = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
