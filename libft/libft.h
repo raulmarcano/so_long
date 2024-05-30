@@ -82,6 +82,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 	//Complementary Functions (Post-eval)
 int		ft_sqrt(int number);
 int		ft_isprint(int c);
+void	ft_free_array(char ***array);
 
 	//GNL
 # ifndef BUFFER_SIZE
