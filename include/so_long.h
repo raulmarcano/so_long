@@ -20,7 +20,7 @@
 typedef struct s_map
 {
 	int fd;
-	int	heigth;
+	int	height;
 	int width;
 	char **carte;
 } t_map;
@@ -32,7 +32,7 @@ typedef struct s_game
 
 	//GET_MAP
 size_t	ft_strlen_notab(const char *str);
-int	ft_heigth(char *argv);
+int	ft_height(char *argv);
 int	ft_width(char *argv);
 void save_map(t_map *map, char *argv);
 

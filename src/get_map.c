@@ -24,7 +24,7 @@ size_t	ft_strlen_notab(const char *str)
 	return (i);
 }
 
-int	ft_heigth(char *argv)
+int	ft_height(char *argv)
 {
     int fd;
     int count_y;
@@ -63,10 +63,10 @@ int	ft_width(char *argv)
         count_x = ft_strlen_notab(line);
         free(line);
 		if (count_x != x)
-		{
-			perror("mal");
-			exit(EXIT_FAILURE);
-		}
+    {
+        ft_printf("Error: bad map dimensions");
+        exit(EXIT_FAILURE);
+    }
     }
 	close(fd);
 	return(count_x);
@@ -77,13 +77,22 @@ void save_map(t_map *map, char *argv)
     int i;
     char *line;
 
-    
-    map->heigth = ft_heigth(argv);
+    map->height = ft_height(argv);
 	map->width = ft_width(argv);
-    map->carte = ft_calloc(((map->heigth) + 1), sizeof(char *));
+    map->carte = ft_calloc(((map->height) + 1), sizeof(char *));
+    if(!map->carte)
+    {
+        ft_printf("Error: failure on map memory allocation");
+        exit(EXIT_FAILURE);
+    }
     map->fd = open(argv, O_RDONLY);
+    if(map->fd < 0)
+    {
+        ft_printf("Error: couldn't open map file");
+        exit(EXIT_FAILURE);
+    }
 	i = 0;
-    while(i <= (map->heigth - 1))
+    while(i <= (map->height - 1))
     {
         map->carte[i] = ft_calloc((map->width + 1), sizeof(char));
         line = get_next_line(map->fd);
