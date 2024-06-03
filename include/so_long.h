@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 11:57:07 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:39:24 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ typedef struct s_game
 }	t_game;
 
 	//GET_MAP
+void	init_map(t_map *map, char *argv);
 size_t	ft_strlen_notab(const char *str);
+void	save_map(t_map *map, char *argv);
+
+//DIMENSIONS
 int		ft_height(char *argv);
 int		ft_width(char *argv);
-void	save_map(t_map *map, char *argv);
 
 	//PARSE
 void	check_characters(t_map *map);

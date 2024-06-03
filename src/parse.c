@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:07 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 11:50:49 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:41:19 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,6 @@ void	check_characters(t_map *map)
 		i++;
 	}
 	i = 0;
-	check_count_characters(map, i, j);
 	check_borders(map);
+	check_count_characters(map, i, j);
 }
