@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 12:38:54 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:19:19 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_width(int fd, int expected_width)
 		free(line);
 		if (count_x != expected_width)
 		{
-			ft_printf("Error: bad map dimensions\n");
+			ft_printf("Error\n Bad map dimensions\n");
 			close(fd);
 			exit(EXIT_FAILURE);
 		}
@@ -41,13 +41,13 @@ int	ft_width(char *argv)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("Error: couldn't open map file\n");
+		ft_printf("Error\n Couldn't open map file\n");
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);
 	if (line == NULL)
 	{
-		ft_printf("Error: empty map file\n");
+		ft_printf("Error\n Empty map file\n");
 		close(fd);
 		exit(EXIT_FAILURE);
 	}
@@ -68,7 +68,7 @@ int	ft_height(char *argv)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("Error: couldn't open map file");
+		ft_printf("Error\n Couldn't open map file");
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);

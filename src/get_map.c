@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:26:34 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 12:45:17 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:12:27 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ size_t	ft_strlen_notab(const char *str)
 void	init_map(t_map *map, char *argv)
 {
 	map->height = ft_height(argv);
+	map->width = ft_width(argv);
 	map->carte = ft_calloc(((map->height) + 1), sizeof(char *));
 	if (!map->carte)
 	{
-		ft_printf("Error: failure on map memory allocation");
+		ft_printf("Error\n Failure on map memory allocation");
 		exit(EXIT_FAILURE);
 	}
-	map->width = ft_width(argv);
 }
 
 void	save_map(t_map *map, char *argv)
@@ -45,7 +45,7 @@ void	save_map(t_map *map, char *argv)
 	map->fd = open(argv, O_RDONLY);
 	if (map->fd < 0)
 	{
-		ft_printf("Error: couldn't open map file");
+		ft_printf("Error\n Couldn't open map file");
 		exit(EXIT_FAILURE);
 	}
 	i = 0;
