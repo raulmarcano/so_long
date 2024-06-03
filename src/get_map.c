@@ -6,12 +6,28 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:26:34 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 17:12:27 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/03 18:17:58 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+void	check_extension(char *map_name)
+{
+	int	len;
+
+	len = ft_strlen(map_name);
+	if (len < 5)
+	{
+        ft_printf("Error\n Map name too short");
+        exit(EXIT_FAILURE);
+    }
+    if (ft_strncmp(&map_name[len - 4], ".ber", 4) != 0)
+    {
+        ft_printf("Error\n Bad map extension, must be file_name.ber\n");
+        exit(EXIT_FAILURE);
+    }
+}
 size_t	ft_strlen_notab(const char *str)
 {
 	size_t	i;
@@ -41,6 +57,7 @@ void	save_map(t_map *map, char *argv)
 	int		i;
 	char	*line;
 
+	check_extension(argv);
 	init_map(map, argv);
 	map->fd = open(argv, O_RDONLY);
 	if (map->fd < 0)
