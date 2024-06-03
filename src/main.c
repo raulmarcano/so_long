@@ -6,33 +6,11 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/05/29 18:14:23 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:51:01 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-void check_top_bttm(char **map, int coord)
-{
-    int i;
-
-    i = 0;
-    while(map[coord][i])
-    {
-        if (map[coord][i] != '1')
-        {
-            ft_printf("Error: Borders not correct\n");
-
-            exit(EXIT_FAILURE);
-        }
-        i++;
-    }
-}
-void check_borders(t_map *map)
-{
-    check_top_bttm(map->carte, 0);
-    check_top_bttm(map->carte, (map->height - 1));
-}
 
 
 int main(int argc, char **argv)
@@ -50,6 +28,7 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
     save_map(map, argv[1]);
-    check_borders(map);
+    check_characters(map);
+    clean_n_exit(map);
     return (0);
 }
