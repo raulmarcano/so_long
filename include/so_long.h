@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 17:19:31 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:53:48 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,21 @@
 # include <fcntl.h>
 //# include <../minilibx/mlx.h>
 
+typedef struct s_coord
+{
+	int x;
+	int y;
+}	t_coord;
+
 typedef struct s_map
 {
 	int		fd;
 	int		height;
 	int		width;
 	char	**carte;
+	t_coord	player;
+	t_coord exit;
+	
 }	t_map;
 
 typedef struct s_game
@@ -42,5 +51,9 @@ int		ft_width(char *argv);
 	//PARSE
 void	check_characters(t_map *map);
 void	clean_n_exit(t_map *map);
+
+	//FLOOD FILL
+char	**cpy_map(t_map *map);
+void	flood_fill(t_map *map);
 
 #endif

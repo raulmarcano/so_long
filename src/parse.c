@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:07 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 17:09:10 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 11:58:45 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	count_pec(t_map *map, int cap_p, int cap_e, int cap_c)
 	err = 0;
 	if (cap_p != 1)
 	{
-		ft_printf("Error\n Just one Player admitted\n");
+		ft_printf("Error\n Invalid number of Player (Expeted 1 Player)\n");
 		err = 1;
 	}
 	if (cap_e != 1)
 	{
-		ft_printf("Error\n Just one Exit admitted\n");
+		ft_printf("Error\n Invalid number of Exit (Expeted 1 Exit)\n");
 		err = 1;
 	}
 	if (cap_c < 1)

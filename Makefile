@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/main.c src/get_map.c src/parse.c src/map_dimensions.c
+SRC = src/main.c src/get_map.c src/parse.c src/map_dimensions.c src/flood_fill.c
 		
 OBJ_DIR = src/obj
 
