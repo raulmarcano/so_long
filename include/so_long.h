@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/04 15:53:48 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:37:31 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_map
 	char	**carte;
 	t_coord	player;
 	t_coord exit;
+	int		coins;
 	
 }	t_map;
 
@@ -54,6 +55,8 @@ void	clean_n_exit(t_map *map);
 
 	//FLOOD FILL
 char	**cpy_map(t_map *map);
-void	flood_fill(t_map *map);
+void flood_fill(t_map *map, int x, int y, char **map_cpy);
+void	get_coord(t_map *map);
+void start_flood_fill(t_map *map);
 
 #endif

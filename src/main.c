@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 18:16:00 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:26:54 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
     save_map(map, argv[1]);
-    check_characters(map);
+	start_flood_fill(map);
     clean_n_exit(map);
     return (0);
 }

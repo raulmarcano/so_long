@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:07 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/04 11:58:45 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:45:05 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	check_count_characters(t_map *map, int i, int j)
 		}
 		i++;
 	}
+	map->coins = cap_c;
 	count_pec(map, cap_p, cap_e, cap_c);
 }
 

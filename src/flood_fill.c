@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:51:09 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/04 15:56:09 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:56:02 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	**cpy_map(t_map *map)
 	while (i <= (map->height - 1))
 	{
 		carte_cpy[i] = ft_strdup(map->carte[i]);
-		ft_printf("%s\n", carte_cpy[i]);
 		if(carte_cpy[i] == NULL)
 		{
 			while(i >= 0)
@@ -33,10 +32,8 @@ char	**cpy_map(t_map *map)
 			free(carte_cpy);
 			clean_n_exit(map);
 		}
-		free(carte_cpy[i]); //esto quitarlo, luego se limpia con free_array
 		i++;
 	}
-	free(carte_cpy); //esto quitarlo
 	return(carte_cpy);
 }
 
@@ -66,11 +63,41 @@ void	get_coord(t_map *map)
 		y++;
 	}
 }
-
-void	flood_fill(t_map *map)
+void flood_fill(t_map *map, int x, int y, char **map_cpy)
 {
-	//char **map_cpy;
-	
-	//map_cpy = cpy_map(map);
-	get_coord(map);
+	if (map_cpy[y][x] == '1' || map_cpy[y][x] == 'R')
+		return ;
+	if (map_cpy[y][x] == 'C')
+		map->coins--;
+	map_cpy[y][x] = 'R';
+		flood_fill(map, x, y - 1, map_cpy);//Up
+		flood_fill(map, x + 1, y, map_cpy);//Right
+		flood_fill(map, x, y + 1, map_cpy);//Down
+		flood_fill(map, x - 1, y, map_cpy);//Left
 }
+
+void start_flood_fill(t_map *map)
+{
+	char **map_cpy;
+	int coins_guard;
+
+	coins_guard = map->coins;
+	map_cpy = cpy_map(map);
+	get_coord(map);
+	flood_fill(map, map->player.x, map->player.y, map_cpy);
+	int i;
+
+	i = 0;
+	while (i <= (map->height - 1))
+	{
+		ft_printf("%s\n", map_cpy[i]);
+		i++;
+	}
+	if (map->coins != 0)
+		ft_printf("Error: Not all coins collected, %d left.\n", map->coins);
+	//clean and exit
+	ft_free_array(&map_cpy);
+	map->coins = coins_guard;
+	ft_printf("coins:%d\n", map->coins);
+}
+
