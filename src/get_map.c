@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:26:34 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/04 11:57:41 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:00:04 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	check_extension(char *map_name)
 		ft_printf("Error\n Map name too short");
 		exit(EXIT_FAILURE);
 	}
-	if (ft_strncmp(&map_name[len - 4], ".ber", 4) != 0)
+	if ((ft_strncmp(&map_name[len - 4], ".ber", 4) != 0)
+		|| (ft_strncmp(&map_name[len - 5], "/.ber", 5) == 0))
 	{
 		ft_printf("Error\n Bad map extension, must be file_name.ber\n");
 		exit(EXIT_FAILURE);
