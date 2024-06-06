@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
     save_map(map, argv[1]);
-	start_flood_fill(map);
+	start_flood_fill(map); //This could be on save_map on get_map.c
     clean_n_exit(map);
     return (0);
 }

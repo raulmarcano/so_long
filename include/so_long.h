@@ -19,8 +19,8 @@
 
 typedef struct s_coord
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 }	t_coord;
 
 typedef struct s_map
@@ -30,9 +30,8 @@ typedef struct s_map
 	int		width;
 	char	**carte;
 	t_coord	player;
-	t_coord exit;
+	t_coord	exit;
 	int		coins;
-	
 }	t_map;
 
 typedef struct s_game
@@ -45,7 +44,7 @@ void	init_map(t_map *map, char *argv);
 size_t	ft_strlen_notab(const char *str);
 void	save_map(t_map *map, char *argv);
 
-//DIMENSIONS
+	//DIMENSIONS
 int		ft_height(char *argv);
 int		ft_width(char *argv);
 
@@ -55,8 +54,8 @@ void	clean_n_exit(t_map *map);
 
 	//FLOOD FILL
 char	**cpy_map(t_map *map);
-void flood_fill(t_map *map, int x, int y, char **map_cpy);
 void	get_coord(t_map *map);
-void start_flood_fill(t_map *map);
+void	start_flood_fill(t_map *map);
+void	flood_fill(t_map *map, int x, int y, char **map_cpy);
 
 #endif
