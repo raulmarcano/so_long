@@ -2,7 +2,7 @@ NAME = so_long
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize="address"
 
 SRC = src/main.c src/get_map.c src/parse.c src/map_dimensions.c src/flood_fill.c
 		
@@ -12,9 +12,13 @@ OBJS = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
 RM = rm -f
 
-INCLUDE = -L ./libft -lft 
+INCLUDE = -L ./libft -lft -L ./minilibx -lmlx 
 
 LIB_DIR = libft/
+
+MLX_DIR = minilibx/
+
+MLX_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 #COLORS
 GREEN=\033[0;32m
@@ -31,7 +35,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo "${CIAN}Compiling...${NC}"
 	@make -s -C $(LIB_DIR)
-	@$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) -o $(NAME)
+	@make -s -C $(MLX_DIR)
+	@$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(MLX_FLAGS) -o $(NAME)
 	@echo "${LGREEN}Program compiled✅${NC}"
 
 $(OBJ_DIR):
@@ -43,11 +48,13 @@ $(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
 clean:
 	@$(RM) -rf $(OBJ_DIR)
 	@make -s clean -C $(LIB_DIR)
+	@make -s clean -C $(MLX_DIR)
 	@echo "${MAGENTA}Objects deleted🧹${NC}"
 
 fclean: clean
 	@$(RM) $(NAME)
 	@make -s fclean -C $(LIB_DIR)
+	@make -s clean -C $(MLX_DIR)
 	@echo "${MAGENTA}All clean✨${NC}"
 
 re:	fclean all
