@@ -36,14 +36,20 @@ typedef struct s_map
 
 typedef struct s_sprite
 {
-	
+	void	*floor;
+	void	*wall;
+	void	*player;
+	void	*coin;
+	void	*exit;
+	void	*enemy;
+	void	*exit_close;
 }	t_sprite;
 
 typedef struct s_game
 {
-	void	*mlx;
-	void	*window;
-	t_sprite	sprite;
+	void		*mlx;
+	void		*window;
+	t_sprite	*sprites;
 }	t_game;
 
 	//GET_MAP
