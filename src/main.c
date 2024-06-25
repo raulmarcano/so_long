@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/25 15:21:59 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:45:18 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    set_images(t_game *game, t_sprite *sprites)
 	sprites->player = mlx_xpm_file_to_image(game->mlx, "./sprites/xpm/player.xpm", &h, &w);
 	sprites->coin = mlx_xpm_file_to_image(game->mlx, "./sprites/xpm/colectable.xpm", &h, &w);
 	sprites->enemy = mlx_xpm_file_to_image(game->mlx, "./sprites/xpm/enemy.xpm", &h, &w);
-	sprites->exit = mlx_xpm_file_to_image(game->mlx, "./sprites/xpm/exit_open.xpm", &h, &w);
+	sprites->exit = mlx_xpm_file_to_image(game->mlx, "./sprites/xpm/exit_portal.xpm", &h, &w);
 }
 void	print_images(t_game *game, t_map *map, t_sprite *sprites)
 {
@@ -36,7 +36,7 @@ void	print_images(t_game *game, t_map *map, t_sprite *sprites)
 		while (j < map->width)
 		{
 			if(map->carte[i][j] == '1')
-				mlx_put_image_to_window(game->mlx, game->window, sprites->wall, j * 64, i * 64); //(mlx, window, coordenada x, coordenada y)
+				mlx_put_image_to_window(game->mlx, game->window, sprites->wall, j * 64, i * 64);
 			else if(map->carte[i][j] == '0')
 				mlx_put_image_to_window(game->mlx, game->window, sprites->floor, j * 64, i * 64);
 			else if(map->carte[i][j] == 'P')
@@ -50,16 +50,14 @@ void	print_images(t_game *game, t_map *map, t_sprite *sprites)
 		i++;
 	}
 }
-void parse_screensize(t_game *game, t_map *map)
+void max_screensize(t_game *game, t_map *map)
 {
 	int x;
     int y;
 	mlx_get_screen_size(game->mlx, &x, &y);
-    ft_printf("Pantalla:\nEn X:%d, en Y:%d\n", x , y);
-	ft_printf("Mapa:\nEn X:%d, en Y:%d\n", map->width , map->height);
 	if((map->width * 64) > x || ((map->height + 3) * 64) > y)
 	{
-		ft_printf("Entra en el exit\n");
+		ft_printf("Error\n Map too big\n");
 		free(game->mlx);
 		free(game);
 		clean_n_exit(map);
@@ -89,7 +87,7 @@ int main(int argc, char **argv)
     }
     game->mlx = mlx_init();
     save_map(map, argv[1]);
-	parse_screensize(game, map);
+	max_screensize(game, map);
     game->window = mlx_new_window(game->mlx, map->width * 64, map->height * 64, "so_long");
 	
 	set_images(game, &game->sprites);
