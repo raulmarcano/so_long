@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/17 18:22:22 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:29:19 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*window;
-	t_sprite	*sprites;
+	t_sprite	sprites;
 }	t_game;
 
 	//GET_MAP
