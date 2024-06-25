@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/25 11:29:19 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:05:32 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <math.h>
 # include <fcntl.h>
 # include "../minilibx/mlx.h"
+#include <X11/Xlib.h>
+#include <X11/keysym.h>
 
 typedef struct s_coord
 {
@@ -60,6 +62,7 @@ void	save_map(t_map *map, char *argv);
 	//DIMENSIONS
 int		ft_height(char *argv);
 int		ft_width(char *argv);
+void	max_screensize(t_game *game, t_map *map);
 
 	//PARSE
 void	check_characters(t_map *map);
@@ -71,16 +74,9 @@ void	get_coord(t_map *map);
 void	start_flood_fill(t_map *map);
 void	flood_fill(t_map *map, int x, int y, char **map_cpy);
 
-	// KEYCODES
-# define KEY_ESC 53
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_UP 126
-# define KEY_LEFT 123
-# define KEY_DOWN 125
-# define KEY_RIGHT 124
-# define KEY_CLOSE_WIN 17
+	//PRINT IMAGES
+void    set_images(t_game *game, t_sprite *sprites);
+void	print_images(t_game *game, t_map *map, t_sprite *sprites);
+
 
 #endif

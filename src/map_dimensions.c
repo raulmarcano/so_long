@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/03 17:19:19 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:56:28 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,19 @@ int	ft_height(char *argv)
 	}
 	close(fd);
 	return (count_y);
+}
+
+void	max_screensize(t_game *game, t_map *map)
+{
+	int	x;
+	int	y;
+
+	mlx_get_screen_size(game->mlx, &x, &y);
+	if ((map->width * 64) > x || ((map->height + 3) * 64) > y)
+	{
+		ft_printf("Error\n Map too big\n");
+		free(game->mlx);
+		free(game);
+		clean_n_exit(map);
+	}
 }
