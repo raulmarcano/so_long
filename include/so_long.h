@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/26 12:03:48 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:14:24 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <math.h>
 # include <fcntl.h>
 # include "../minilibx/mlx.h"
-#include <X11/Xlib.h>
-#include <X11/keysym.h>
+# include <X11/Xlib.h>
+# include <X11/keysym.h>
 
 typedef struct s_coord
 {
@@ -52,7 +52,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*window;
 	t_sprite	sprites;
-	t_map 		*map;
+	t_map		*map;
 	int			count_moves;
 }	t_game;
 
@@ -77,8 +77,17 @@ void	start_flood_fill(t_map *map);
 void	flood_fill(t_map *map, int x, int y, char **map_cpy);
 
 	//PRINT IMAGES
-void    set_images(t_game *game, t_sprite *sprites);
-void	print_images(t_game *game, t_map *map, t_sprite *sprites);
+void	set_images(t_game *game, t_sprite *sprites);
+void	print_images(t_game *game, t_map *map);
 
+	//MOVES
+void	move_up(t_game *game, int x, int y);
+void	move_down(t_game *game, int x, int y);
+void	move_left(t_game *game, int x, int y);
+void	move_right(t_game *game, int x, int y);
+
+	//HOOKS
+int		ft_key_press(int key, t_game *game);
+int		click_x(t_game *game);
 
 #endif
