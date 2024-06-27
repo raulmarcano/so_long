@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:26:34 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/17 14:16:57 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 10:00:11 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,12 @@ void	save_map(t_map *map, char *argv)
 	while (i <= (map->height - 1))
 	{
 		map->carte[i] = ft_calloc((map->width + 1), sizeof(char));
-		line = get_next_line(map->fd);
+		line = get_next_line(map->fd, 0);
 		ft_strlcpy(map->carte[i], line, (map->width + 1));
 		free(line);
 		i++;
 	}
+	line = get_next_line(map->fd, 1);
 	check_characters(map);
 	start_flood_fill(map);
 	close(map->fd);

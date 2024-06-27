@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/25 16:56:28 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 10:02:55 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_width(int fd, int expected_width)
 	char	*line;
 	int		count_x;
 
-	line = get_next_line(fd);
+	line = get_next_line(fd, 0);
 	while (line != NULL)
 	{
 		count_x = ft_strlen_notab(line);
@@ -28,7 +28,7 @@ void	check_width(int fd, int expected_width)
 			close(fd);
 			exit(EXIT_FAILURE);
 		}
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 	}
 }
 
@@ -44,7 +44,7 @@ int	ft_width(char *argv)
 		ft_printf("Error\n Couldn't open map file\n");
 		exit(EXIT_FAILURE);
 	}
-	line = get_next_line(fd);
+	line = get_next_line(fd, 0);
 	if (line == NULL)
 	{
 		ft_printf("Error\n Empty map file\n");
@@ -71,12 +71,12 @@ int	ft_height(char *argv)
 		ft_printf("Error\n Couldn't open map file");
 		exit(EXIT_FAILURE);
 	}
-	line = get_next_line(fd);
+	line = get_next_line(fd, 0);
 	while (line != NULL)
 	{
 		count_y++;
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 	}
 	close(fd);
 	return (count_y);

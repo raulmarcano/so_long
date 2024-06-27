@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/26 15:14:24 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 11:40:31 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ void	get_coord(t_map *map);
 void	start_flood_fill(t_map *map);
 void	flood_fill(t_map *map, int x, int y, char **map_cpy);
 
-	//PRINT IMAGES
+	//IMAGES
 void	set_images(t_game *game, t_sprite *sprites);
 void	print_images(t_game *game, t_map *map);
+void	clean_images(t_game *game, t_sprite *sprites);
 
 	//MOVES
 void	move_up(t_game *game, int x, int y);
@@ -89,5 +90,9 @@ void	move_right(t_game *game, int x, int y);
 	//HOOKS
 int		ft_key_press(int key, t_game *game);
 int		click_x(t_game *game);
+
+	//SET AND DESTROY
+void	destroy_all(t_game *game);
+void	set_game(t_map *map, t_game *game, char **argv);
 
 #endif

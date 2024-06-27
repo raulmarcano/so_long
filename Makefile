@@ -2,10 +2,10 @@ NAME = so_long
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize="address"
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize="address"
 
 SRC = src/main.c src/get_map.c src/parse.c src/map_dimensions.c src/flood_fill.c\
-		src/images.c src/moves.c src/hooks.c
+		src/images.c src/moves.c src/hooks.c src/set_and_destroy.c
 		
 OBJ_DIR = src/obj
 

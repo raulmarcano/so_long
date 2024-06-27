@@ -6,11 +6,24 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:59:55 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/26 15:10:38 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 11:46:53 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	load_images_error(t_game *game, t_sprite *sprites)
+{
+	if (!sprites->floor || !sprites->wall
+		|| !sprites->player || !sprites->coin || !sprites->exit)
+	{
+		ft_printf("Error\n Failed while loading images\n");
+		ft_free_array(&game->map->carte);
+		free(game->map);
+		destroy_all(game);
+		exit(EXIT_FAILURE);
+	}
+}
 
 void	set_images(t_game *game, t_sprite *sprites)
 {
@@ -27,6 +40,7 @@ void	set_images(t_game *game, t_sprite *sprites)
 			"./sprites/xpm/colectable.xpm", &h, &w);
 	sprites->exit = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/xpm/exit_portal.xpm", &h, &w);
+	load_images_error(game, sprites);
 }
 
 void	put_images(t_game *game, t_map *map, int x, int y)
@@ -63,5 +77,34 @@ void	print_images(t_game *game, t_map *map)
 			x++;
 		}
 		y++;
+	}
+}
+
+void	clean_images(t_game *game, t_sprite *sprites)
+{
+	if (sprites->floor)
+	{
+		mlx_destroy_image(game->mlx, sprites->floor);
+		sprites->floor = NULL;
+	}
+	if (sprites->wall)
+	{
+		mlx_destroy_image(game->mlx, sprites->wall);
+		sprites->wall = NULL;
+	}
+	if (sprites->player)
+	{
+		mlx_destroy_image(game->mlx, sprites->player);
+		sprites->player = NULL;
+	}
+	if (sprites->coin)
+	{
+		mlx_destroy_image(game->mlx, sprites->coin);
+		sprites->coin = NULL;
+	}
+	if (sprites->exit)
+	{
+		mlx_destroy_image(game->mlx, sprites->exit);
+		sprites->exit = NULL;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:27:50 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/26 14:33:29 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 11:05:07 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 int	check_move(t_game *game, int x, int y)
 {
-	if (game->map->carte[y][x] == '1')
-		return (1);
-	else if (game->map->carte[y][x] == 'C')
-		game->map->coins--;
-	else if (game->map->carte[y][x] == 'E')
+	if (game->map->carte[y][x] == 'E')
 	{
 		game->count_moves++;
 		ft_printf("\nMoves: %d", game->count_moves);
-		ft_printf("\n¡YOU WIN!");
-		exit(EXIT_SUCCESS);
+		ft_printf("\n\n¡YOU WIN!\n\n");
+		ft_free_array(&game->map->carte);
+		free(game->map);
+		destroy_all(game);
+		exit(EXIT_FAILURE);
 	}
+	else if (game->map->carte[y][x] == '1')
+		return (1);
+	else if (game->map->carte[y][x] == 'C')
+		game->map->coins--;
 	else
 		return (0);
 	return (0);
