@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 12:21:41 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/05/29 12:09:53 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 09:59:12 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_free_array(char ***array);
 # endif
 
 char	*read_n_buffer(char *buf, int fd);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int free_src);
 char	*line_cutter(char **stc);
 char	*gnl_strjoin(char const *s1, char const *s2);
 

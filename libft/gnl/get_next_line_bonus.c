@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:27:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/05/29 12:12:48 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/06/27 10:02:03 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,16 @@ char	*line_cutter(char **stc)
 	return (line);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int free_src)
 {
 	static char	*stc[1024];
 	char		*line;
 
+	if (free_src == 1)
+	{
+		free(stc[fd]);
+		return NULL;
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE == INT_MAX)
 		return (NULL);
 	stc[fd] = read_n_buffer(stc[fd], fd);
