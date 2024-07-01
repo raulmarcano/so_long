@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:34:31 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/01 12:04:29 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:59:50 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	set_game(t_map *map, t_game *game, char **argv)
 	mlx_set_font(game->mlx, game->window, "12x24romankana");
 	mlx_key_hook(game->window, ft_key_press, game);
 	mlx_hook(game->window, DestroyNotify, 0, click_x, game);
-	//mlx_loop_hook(game->mlx, animation, &game);
+	mlx_loop_hook(game->mlx, animation, game);
 	mlx_loop(game->mlx);
 }

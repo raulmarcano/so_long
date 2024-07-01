@@ -16,7 +16,7 @@ OBJ_DIR_bonus = src/bonus/obj
 OBJS = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
 SRC_bonus = src/bonus/main.c src/bonus/get_map.c src/bonus/parse.c src/bonus/map_dimensions.c src/bonus/flood_fill.c\
-		src/bonus/images.c src/bonus/moves.c src/bonus/hooks.c src/bonus/set_and_destroy.c\
+		src/bonus/images.c src/bonus/moves.c src/bonus/hooks.c src/bonus/set_and_destroy.c src/bonus/bonus.c\
 
 OBJS_bonus = $(SRC_bonus:src/bonus/%.c=$(OBJ_DIR_bonus)/%.o)
 
