@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:27:50 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 13:06:24 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:14:27 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	check_move(t_game *game, int x, int y)
 		return (1);
 	else if (game->map->carte[y][x] == 'C')
 		game->map->coins--;
-	else
-		return (0);
 	return (0);
 }
 

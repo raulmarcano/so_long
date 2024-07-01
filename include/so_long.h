@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 12:23:36 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:19:55 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_sprite
 	void	*enemy;
 	void	*badguy;
 	void	*badguy2;
+	void	*background;
 }	t_sprite;
 
 typedef struct s_game
@@ -101,6 +102,6 @@ void	set_game(t_map *map, t_game *game, char **argv);
 	//BONUS
 
 //ANIMATIONS
-
+void	counter_on_screen(t_game *game, int counter);
 
 #endif

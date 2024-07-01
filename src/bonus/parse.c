@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:07 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 13:05:36 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:11:09 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,8 @@ void	check_characters(t_map *map)
 		while (map->carte[i][j])
 		{
 			c = map->carte[i][j];
-			if (c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C' && c != 'B')
+			if (c != '0' && c != '1' && c != 'P' && c != 'E'
+				&& c != 'C' && c != 'B')
 			{
 				ft_printf("Error\n Forbidden characters\n");
 				clean_n_exit(map);

@@ -6,16 +6,11 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:34:31 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 13:06:32 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:04:29 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-// int	animation()
-// {
-	
-// }
 
 void	destroy_all(t_game *game)
 {
@@ -50,6 +45,7 @@ void	set_game(t_map *map, t_game *game, char **argv)
 	game->window = mlx_new_window(game->mlx, window_w, window_h, "so_long");
 	map->carte[map->exit.y][map->exit.x] = '0';
 	set_images(game, &game->sprites);
+	mlx_set_font(game->mlx, game->window, "12x24romankana");
 	mlx_key_hook(game->window, ft_key_press, game);
 	mlx_hook(game->window, DestroyNotify, 0, click_x, game);
 	//mlx_loop_hook(game->mlx, animation, &game);

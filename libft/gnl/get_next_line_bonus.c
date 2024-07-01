@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:27:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 10:02:03 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:20:21 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*get_next_line(int fd, int free_src)
 	if (free_src == 1)
 	{
 		free(stc[fd]);
-		return NULL;
+		return (NULL);
 	}
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE == INT_MAX)
 		return (NULL);

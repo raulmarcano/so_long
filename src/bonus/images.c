@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:59:55 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 13:06:10 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:13:08 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	load_images_error(t_game *game, t_sprite *sprites)
 {
 	if (!sprites->floor || !sprites->wall
 		|| !sprites->player || !sprites->coin
-			|| !sprites->exit || !sprites->badguy || !sprites->badguy2)
+		|| !sprites->exit || !sprites->badguy || !sprites->badguy2)
 	{
 		ft_printf("Error\n Failed while loading images\n");
 		ft_free_array(&game->map->carte);
@@ -42,9 +42,11 @@ void	set_images(t_game *game, t_sprite *sprites)
 	sprites->exit = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/xpm/exit_portal.xpm", &h, &w);
 	sprites->badguy = mlx_xpm_file_to_image(game->mlx,
-		"./sprites/xpm/badguy.xpm", &h, &w);
+			"./sprites/xpm/badguy.xpm", &h, &w);
 	sprites->badguy2 = mlx_xpm_file_to_image(game->mlx,
-		"./sprites/xpm/badguy2.xpm", &h, &w);
+			"./sprites/xpm/badguy2.xpm", &h, &w);
+	sprites->background = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/xpm/background1.xpm", &h, &w);
 	load_images_error(game, sprites);
 }
 
@@ -86,43 +88,25 @@ void	print_images(t_game *game, t_map *map)
 		}
 		y++;
 	}
+	counter_on_screen(game, game->count_moves);
 }
 
 void	clean_images(t_game *game, t_sprite *sprites)
 {
 	if (sprites->floor)
-	{
 		mlx_destroy_image(game->mlx, sprites->floor);
-		sprites->floor = NULL;
-	}
 	if (sprites->wall)
-	{
 		mlx_destroy_image(game->mlx, sprites->wall);
-		sprites->wall = NULL;
-	}
 	if (sprites->player)
-	{
 		mlx_destroy_image(game->mlx, sprites->player);
-		sprites->player = NULL;
-	}
 	if (sprites->coin)
-	{
 		mlx_destroy_image(game->mlx, sprites->coin);
-		sprites->coin = NULL;
-	}
 	if (sprites->exit)
-	{
 		mlx_destroy_image(game->mlx, sprites->exit);
-		sprites->exit = NULL;
-	}
 	if (sprites->badguy)
-	{
 		mlx_destroy_image(game->mlx, sprites->badguy);
-		sprites->badguy = NULL;
-	}
 	if (sprites->badguy2)
-	{
 		mlx_destroy_image(game->mlx, sprites->badguy2);
-		sprites->badguy2 = NULL;
-	}
+	if (sprites->background)
+		mlx_destroy_image(game->mlx, sprites->background);
 }
