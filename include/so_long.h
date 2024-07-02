@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 12:59:50 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:30:50 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ size_t	ft_strlen_notab(const char *str);
 void	save_map(t_map *map, char *argv);
 
 //DIMENSIONS
-int		ft_height(char *argv);
+int		ft_height(char *argv, t_map *map);
 int		ft_width(char *argv, t_map *map);
 void	max_screensize(t_game *game, t_map *map);
 

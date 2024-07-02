@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 14:12:56 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:31:39 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_width(char *argv, t_map *map)
 	return (x);
 }
 
-int	ft_height(char *argv)
+int	ft_height(char *argv, t_map *map)
 {
 	int		fd;
 	int		count_y;
@@ -71,7 +71,8 @@ int	ft_height(char *argv)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("Error\n Couldn't open map file");
+		ft_printf("Error\n Couldn't open map file\n");
+		free(map);
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd, 0);
