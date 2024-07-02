@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 11:56:36 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 12:16:12 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	ft_width(char *argv, t_map *map)
 	if (line == NULL)
 	{
 		ft_printf("Error\n Empty map file\n");
+		free(map);
 		close(fd);
 		exit(EXIT_FAILURE);
 	}
