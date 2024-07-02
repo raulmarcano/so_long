@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:27:10 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 12:55:16 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:37:06 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	counter_on_screen(t_game *game, int counter)
 	mlx_put_image_to_window(game->mlx, game->window,
 		game->sprites.background, 0, 0);
 	string = ft_itoa(counter);
-	mlx_string_put(game->mlx, game->window, 15, 25, 0xffc64b, "Moves:");
-	mlx_string_put(game->mlx, game->window, 100, 25, 0xffc64b, string);
+	mlx_string_put(game->mlx, game->window, 20, 30, 0xffc64b, "Moves:");
+	mlx_string_put(game->mlx, game->window, 100, 30, 0xffc64b, string);
 	free(string);
 }
 
