@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:34:31 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 11:46:28 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 11:27:14 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,16 @@ void	set_game(t_map *map, t_game *game, char **argv)
 	int	window_w;
 	int	window_h;
 
+	save_map(map, argv[1]);
+	game = malloc(sizeof(t_game));
+	if (!game)
+	{
+		free(map);
+		ft_printf("Error\n failure on game struct memory allocation");
+		clean_n_exit(map);
+	}
 	game->count_moves = 0;
 	game->mlx = mlx_init();
-	save_map(map, argv[1]);
 	game->map = map;
 	max_screensize(game, map);
 	window_w = map->width * 64;

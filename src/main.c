@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 11:37:50 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 11:35:11 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,7 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n failure on map memory allocation");
 		exit(EXIT_FAILURE);
 	}
-	game = malloc(sizeof(t_game));
-	if (!game)
-	{
-		free(map);
-		ft_printf("Error\n failure on game struct memory allocation");
-		exit(EXIT_FAILURE);
-	}
+	game = NULL;
 	set_game(map, game, argv);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/06/27 10:02:55 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 11:51:15 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	check_width(int fd, int expected_width)
+void	check_width(int fd, int expected_width, t_map *map)
 {
 	char	*line;
 	int		count_x;
@@ -26,13 +26,15 @@ void	check_width(int fd, int expected_width)
 		{
 			ft_printf("Error\n Bad map dimensions\n");
 			close(fd);
+			free(map);
+			get_next_line(fd, 1);
 			exit(EXIT_FAILURE);
 		}
 		line = get_next_line(fd, 0);
 	}
 }
 
-int	ft_width(char *argv)
+int	ft_width(char *argv, t_map *map)
 {
 	int		fd;
 	int		x;
@@ -53,7 +55,7 @@ int	ft_width(char *argv)
 	}
 	x = ft_strlen_notab(line);
 	free(line);
-	check_width(fd, x);
+	check_width(fd, x, map);
 	close(fd);
 	return (x);
 }
