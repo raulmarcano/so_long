@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:26:34 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 12:09:20 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:13:15 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ size_t	ft_strlen_notab(const char *str)
 void	init_map(t_map *map, char *argv)
 {
 	map->height = ft_height(argv);
+	if (map->height > 256)
+	{
+		free(map);
+		ft_printf("Error\n Map too big");
+		exit(EXIT_FAILURE);
+	}
 	map->width = ft_width(argv, map);
 	map->carte = ft_calloc(((map->height) + 1), sizeof(char *));
 	if (!map->carte)

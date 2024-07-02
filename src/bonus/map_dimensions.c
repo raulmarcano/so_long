@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:52 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 12:16:12 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:12:42 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_width(int fd, int expected_width, t_map *map)
 	{
 		count_x = ft_strlen_notab(line);
 		free(line);
-		if (count_x != expected_width)
+		if (count_x != expected_width || count_x > 256)
 		{
 			ft_printf("Error\n Bad map dimensions\n");
 			close(fd);
