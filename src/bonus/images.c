@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:59:55 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/01 12:13:08 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 12:36:55 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,6 @@ void	put_images(t_game *game, t_map *map, int x, int y)
 	else if (map->carte[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx,
 			game->window, game->sprites.exit, x * 64, y * 64);
-	else if (map->carte[y][x] == 'B')
-		mlx_put_image_to_window(game->mlx,
-			game->window, game->sprites.badguy, x * 64, y * 64);
 }
 
 void	print_images(t_game *game, t_map *map)
