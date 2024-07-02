@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:11:51 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 11:53:47 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 17:05:55 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	main(int argc, char **argv)
 	t_game	*game;
 
 	if (argc != 2)
-		exit(1);
+	{
+		ft_printf("Error\n Required just 1 map as an argument");
+		exit(EXIT_FAILURE);
+	}
 	map = malloc(sizeof(t_map));
 	if (!map)
 	{
