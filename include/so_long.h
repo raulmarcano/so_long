@@ -6,7 +6,7 @@
 /*   By: rmarcano <rmarcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:12:28 by rmarcano          #+#    #+#             */
-/*   Updated: 2024/07/02 12:36:36 by rmarcano         ###   ########.fr       */
+/*   Updated: 2024/07/02 12:59:50 by rmarcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_sprite
 	void	*badguy;
 	void	*badguy2;
 	void	*background;
+	void	*portal2;
 }	t_sprite;
 
 typedef struct s_game
