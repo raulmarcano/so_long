@@ -10,9 +10,10 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
 </p>
 
-<div>
-  <p>Gameplay Flow:</p>
-  <img src="/img/so_long_gameflow.gif" width="500" alt="Gameplay flow">
+<div style="text-align: center;">
+  <img src="/img/so_long_gameflow.gif" width="1000" alt="Gameplay flow">
+</div>
+
 
 ## Installation
 To install so_long, follow these steps:
@@ -54,9 +55,8 @@ The game will terminate and display "Error\n" for the following cases:
 #### Floodfill
 The game uses the floodfill algorithm to guarantee that the map can be solved.
 <div>
-  <br>
-  <p>Floodfill Illustration:</p>
-  <img src="/img/floodfill.gif" width="500" alt="Algorithm illustration">
+  <p>Floodfill Example:</p>
+  <img src="/img/floodfill.gif" width="300" alt="Algorithm illustration">
 </div>
 
 ## Additional Features (Bonus)
